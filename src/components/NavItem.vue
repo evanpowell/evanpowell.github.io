@@ -40,30 +40,29 @@ export default {
   &--item {
     font-size: 2rem;
     padding: 1.5rem 0 1.5rem 3rem;
-    background-image: linear-gradient(270deg, transparent 0%, transparent 50%, #23908b 50%);
+    background-image: linear-gradient(270deg, transparent 0%, transparent 50%, $color-primary 50%);
     background-size: 200%;
     background-position: 100%;
 
     &:hover {
       cursor: pointer;
-      background-color: #f2f2f2;
+      background-color: $color-grey-light-2;
       transition: all .2s ease;
       animation: hoverNav .2s ease forwards;
     }
   }
 
   & span {
-    color: #23908b;
-    transition: all .2s ease;
+    color: $color-primary;
   }
 }
 
 .active,
 .active:hover {
-  animation: activeNav .3s ease-out forwards;
+  animation: activeNav .3s ease-out .35s forwards;
 
   & span {
-    color: white;
+    animation: activeSpan .3s ease-out .35s forwards;
   }
 }
 
@@ -88,7 +87,17 @@ export default {
 
   100% {
     background-position: 0%;
-    color: white;
+    color: $color-white;
+  }
+}
+
+@keyframes activeSpan {
+  0% {
+    color: $color-primary;
+  }
+
+  100% {
+    color: $color-white;
   }
 }
 </style>

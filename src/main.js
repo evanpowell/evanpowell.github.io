@@ -13,7 +13,7 @@ Vue.use(VueScrollTo, {
   duration: 500,
   easing: 'ease',
   offset: 0,
-  cancelable: true,
+  cancelable: false,
   onStart: false,
   onDone: (el) => {
     el.setAttribute('tabindex', '-1');

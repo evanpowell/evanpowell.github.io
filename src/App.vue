@@ -30,9 +30,13 @@ import Banner from './components/Banner.vue';
 
 const isInViewPort = (el) => {
   const bounding = el.getBoundingClientRect();
+  const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+  const topTakesUpPageMajority = bounding.top >= 0 &&
+    bounding.top < viewHeight / 2;
+  const bottomTakesUpPageMajority = bounding.bottom <= viewHeight &&
+    bounding.bottom > viewHeight / 2;
   return (
-    bounding.top >= 0 &&
-      bounding.top < (window.innerHeight || document.documentElement.clientHeight)
+    topTakesUpPageMajority || bottomTakesUpPageMajority
   );
 };
 

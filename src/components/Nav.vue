@@ -66,7 +66,7 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: white;
+    background-color: $color-white;
     box-shadow: 2px 0 6px rgba(0, 0, 0, .2);
     z-index: 99;
 
@@ -74,13 +74,13 @@ export default {
       width: 100%;
       height: 17rem;
       position: relative;
-      background-color: #f8f8f8;
-      border-bottom: 1px solid #c8c8c8;
+      background-color: $color-grey-light-1;
+      border-bottom: 1px solid $color-grey-light-2;
       transition: background-color .2s;
 
       &:hover {
         cursor: pointer;
-        background-color: #f0f0f0;
+        background-color: $color-grey-light-2;
       }
     }
 
@@ -92,7 +92,7 @@ export default {
       min-width: 14rem;
 
       &--main {
-        color: #23908b;
+        color: $color-primary;
         font-weight: 200;
         font-size: 3.7rem;
         line-height: 3.4rem;
