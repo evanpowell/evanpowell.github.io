@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-    <a href="#banner">
+    <a href="#" v-scroll-to="'#banner'">
       <div class="nav__logo">
         <div class="nav__title">
           <h1 class="nav__title--main">Evan Powell</h1>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import NavItem from './NavItem';
+import NavItem from './NavItem.vue';
 
 export default {
   name: 'Nav',
@@ -54,7 +54,7 @@ export default {
         },
       ],
     };
-  }
+  },
 };
 </script>
 
@@ -77,7 +77,7 @@ export default {
       background-color: #f8f8f8;
       border-bottom: 1px solid #c8c8c8;
       transition: background-color .2s;
-      
+
       &:hover {
         cursor: pointer;
         background-color: #f0f0f0;

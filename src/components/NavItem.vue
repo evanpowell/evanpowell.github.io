@@ -1,6 +1,6 @@
 <template>
-  <a :href="link">
-    <div :class="[navItem, { 'active': isActive }]" :href="link">
+  <a href="#" v-scroll-to="link">
+    <div :class="[navItem, { 'active': isActive }]">
         <p class="nav__list--link">
           <span>
             <font-awesome-icon :icon="navIcon" fixed-width />
@@ -12,83 +12,83 @@
 </template>
 
 <script>
-  export default {
-    props: [
-      'navName',
-      'navIcon',
-      'activeSection'
-    ],
-    data() {
-      return {
-        navItem: 'nav__list--item',
-      };
+export default {
+  props: [
+    'navName',
+    'navIcon',
+    'activeSection',
+  ],
+  data() {
+    return {
+      navItem: 'nav__list--item',
+    };
+  },
+  computed: {
+    isActive() {
+      return this.navName.toLowerCase() === this.activeSection;
     },
-    computed: {
-      isActive() {
-        return this.navName.toLowerCase() === this.activeSection;
-      },
-      link() {
-        return '#' + this.navName.toLowerCase();
-      }
+    link() {
+      return `#${this.navName.toLowerCase()}`;
     },
-  }
+  },
+};
 </script>
 
 <style lang="scss">
-  .nav__list {
+.nav__list {
 
-    &--item {
-      font-size: 2rem;
-      padding: 1.5rem 0 1.5rem 3rem;
-      background-image: linear-gradient(270deg, transparent 0%, transparent 50%, #23908b 50%);
-      background-size: 200%;
-      background-position: 100%;
+  &--item {
+    font-size: 2rem;
+    padding: 1.5rem 0 1.5rem 3rem;
+    background-image: linear-gradient(270deg, transparent 0%, transparent 50%, #23908b 50%);
+    background-size: 200%;
+    background-position: 100%;
 
-      &:hover {
-        cursor: pointer;
-        background-color: #f2f2f2;
-        transition: all .2s ease;
-        animation: hoverNav .2s ease forwards;
-      }
-    }
-
-    & span {
-      color: #23908b;
+    &:hover {
+      cursor: pointer;
+      background-color: #f2f2f2;
       transition: all .2s ease;
+      animation: hoverNav .2s ease forwards;
     }
   }
 
-  .active,
-  .active:hover {
-    animation: activeNav .3s ease-out forwards;
+  & span {
+    color: #23908b;
+    transition: all .2s ease;
+  }
+}
 
-    & span {
-      color: white;
-    }
+.active,
+.active:hover {
+  animation: activeNav .3s ease-out forwards;
+
+  & span {
+    color: white;
+  }
+}
+
+@keyframes hoverNav {
+  0% {
+    background-position: 100%;
   }
 
-  @keyframes hoverNav {
-    0% {
-      background-position: 100%;
-    }
-
-    50% {
-      background-position: 95%;
-    }
-
-    100% {
-      background-position: 97%;
-    }
+  50% {
+    background-position: 95%;
   }
 
-  @keyframes activeNav {
-    0% {
-      background-position: 100%;
-    }
-
-    100% {
-      background-position: 0%;
-      color: white;
-    }
+  100% {
+    background-position: 97%;
   }
+}
+
+@keyframes activeNav {
+  0% {
+    background-position: 100%;
+  }
+
+  100% {
+    background-position: 0%;
+    color: white;
+  }
+}
 </style>

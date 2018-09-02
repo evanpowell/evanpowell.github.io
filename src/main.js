@@ -1,9 +1,28 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faCode, faStar, faMusic, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import VueScrollTo from 'vue-scrollto';
 
 import Vue from 'vue';
 import App from './App.vue';
+
+Vue.use(VueScrollTo);
+
+Vue.use(VueScrollTo, {
+  container: '#app',
+  duration: 500,
+  easing: 'ease',
+  offset: 0,
+  cancelable: true,
+  onStart: false,
+  onDone: (el) => {
+    el.setAttribute('tabindex', '-1');
+    el.focus();
+  },
+  onCancel: false,
+  x: false,
+  y: true,
+});
 
 Vue.directive('scroll', {
   inserted: (el, binding) => {

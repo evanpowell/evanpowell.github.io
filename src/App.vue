@@ -31,7 +31,7 @@ import Banner from './components/Banner.vue';
 const isInViewPort = (el) => {
   const bounding = el.getBoundingClientRect();
   return (
-      bounding.top >= 0 &&
+    bounding.top >= 0 &&
       bounding.top < (window.innerHeight || document.documentElement.clientHeight)
   );
 };
@@ -50,10 +50,9 @@ export default {
   methods: {
     handleScroll(evt, el) {
       if (isInViewPort(el) && el.id !== this.activeSection) {
-        console.log(el.id);
         this.activeSection = el.id;
-      };
-    }
+      }
+    },
   },
 };
 </script>
