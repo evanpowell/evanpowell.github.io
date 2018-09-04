@@ -1,7 +1,9 @@
 <template>
-  <div class="banner">
-    <img class="banner--img" src="../assets/images/banner.jpg" alt="Banner" >
-  </div>
+  <section id="banner">
+    <div class="banner">
+      <img class="banner--img" src="../assets/images/banner.jpg" alt="Banner" >
+    </div>
+  </section>
 </template>
 
 <script>

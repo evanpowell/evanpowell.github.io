@@ -2,31 +2,27 @@
   <div id="app">
     <Nav :active-section="activeSection" />
     <div class="main">
-      <section id="banner" v-scroll="handleScroll">
-        <Banner />
-      </section>
-      <section id="about" v-scroll="handleScroll">
-        About
-      </section>
-      <section id="projects" v-scroll="handleScroll">
-        Projects
-      </section>
-      <section id="skills" v-scroll="handleScroll">
-        Skills
-      </section>
-      <section id="music" v-scroll="handleScroll">
-        Music
-      </section>
-      <section id="contact" v-scroll="handleScroll">
-        Contact
-      </section>
+      <section-wrapper
+        v-for="section in sections"
+        :key="section"
+        :title="section"
+        v-scroll="handleScroll"
+        ><div :is="section"></div>
+      </section-wrapper>
     </div>
   </div>
 </template>
 
 <script>
 import Nav from './components/Nav.vue';
+import SectionWrapper from './components/SectionWrapper.vue';
 import Banner from './components/Banner.vue';
+import About from './components/About.vue';
+import Projects from './components/Projects.vue';
+import Skills from './components/Skills.vue';
+import Music from './components/Music.vue';
+import Contact from './components/Contact.vue';
+
 
 const isInViewPort = (el) => {
   const bounding = el.getBoundingClientRect();
@@ -44,11 +40,25 @@ export default {
   name: 'app',
   components: {
     Nav,
+    SectionWrapper,
     Banner,
+    About,
+    Projects,
+    Skills,
+    Music,
+    Contact,
   },
   data() {
     return {
       activeSection: 'banner',
+      sections: [
+        'banner',
+        'about',
+        'projects',
+        'skills',
+        'music',
+        'contact',
+      ],
     };
   },
   methods: {
@@ -66,23 +76,15 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: $color-grey-dark-1;
+}
+
+.main {
+  padding-left: 20rem;
+  background-color: $color-grey-light-1;
 }
 
 section {
   height: 100vh;
 }
-
-#about {
-  background-color: aqua;
-}
-
-#projects {
-  background-color: beige;
-}
-
-.main {
-  padding-left:20rem;
-}
-
 </style>

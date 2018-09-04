@@ -28,7 +28,9 @@ export default {
   components: {
     NavItem,
   },
-  props: ['activeSection'],
+  props: {
+    activeSection: String,
+  },
   data() {
     return {
       navItems: [
@@ -59,7 +61,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss">
+<style scoped lang="scss">
   .nav {
     min-width: 20rem;
     height: 100vh;
@@ -85,10 +87,7 @@ export default {
     }
 
     &__title {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      @include absoluteCenter;
       min-width: 14rem;
 
       &--main {

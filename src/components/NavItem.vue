@@ -13,11 +13,11 @@
 
 <script>
 export default {
-  props: [
-    'navName',
-    'navIcon',
-    'activeSection',
-  ],
+  props: {
+    navName: String,
+    navIcon: String,
+    activeSection: String,
+  },
   data() {
     return {
       navItem: 'nav__list--item',
@@ -34,7 +34,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .nav__list {
 
   &--item {
@@ -43,11 +43,11 @@ export default {
     background-image: linear-gradient(270deg, transparent 0%, transparent 50%, $color-primary 50%);
     background-size: 200%;
     background-position: 100%;
+    transition: all .2s ease;
 
     &:hover {
       cursor: pointer;
       background-color: $color-grey-light-2;
-      transition: all .2s ease;
       animation: hoverNav .2s ease forwards;
     }
   }
@@ -59,10 +59,10 @@ export default {
 
 .active,
 .active:hover {
-  animation: activeNav .3s ease-out .35s forwards;
+  animation: activeNav .3s ease-out .17s forwards;
 
   & span {
-    animation: activeSpan .3s ease-out .35s forwards;
+    animation: activeSpan .3s ease-out .17s forwards;
   }
 }
 
@@ -88,6 +88,7 @@ export default {
   100% {
     background-position: 0%;
     color: $color-white;
+    font-weight: bold;
   }
 }
 
