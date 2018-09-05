@@ -1,5 +1,6 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUser, faCode, faStar, faMusic, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faCode, faStar, faMusic, faEnvelope, faGithub } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import VueScrollTo from 'vue-scrollto';
 
@@ -35,7 +36,7 @@ Vue.directive('scroll', {
   },
 });
 
-library.add(faUser, faCode, faStar, faMusic, faEnvelope);
+library.add(faUser, faCode, faStar, faMusic, faEnvelope, faGithub, faLinkedinIn);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

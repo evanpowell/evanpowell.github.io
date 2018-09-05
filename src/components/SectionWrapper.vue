@@ -25,7 +25,6 @@ export default {
   background-color: $color-primary;
   height: 10rem;
   position: relative;
-  margin-bottom: 5rem;
 
   &__text {
     position: absolute;
@@ -43,5 +42,6 @@ export default {
 .container {
   width: 80%;
   margin: 0 auto;
+  padding: 7rem 0;
 }
 </style>
